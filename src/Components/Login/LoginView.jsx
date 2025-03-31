@@ -17,6 +17,11 @@ const LoginView = () => {
     navigate("/registro");
   };
 
+  const goToRecoverPassword = () => {
+    navigate("/recuperar-password");
+  };
+  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials(prev => ({
@@ -94,9 +99,10 @@ const LoginView = () => {
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
                   Contraseña
                 </label>
-                <a href="/recuperar-password" className="text-sm text-blue-600 hover:text-blue-800">
-                  
-                </a>
+                <a onClick={goToRecoverPassword} className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer">
+  ¿Olvidaste tu contraseña?
+</a>
+
               </div>
               <input
                 id="password"

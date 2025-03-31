@@ -5,7 +5,6 @@ import { useAuth } from '../context/AuthContext';
 export const ProtectedRoute = () => {
   const { isAuthenticated, loading } = useAuth();
   
-  // Mientras se verifica la autenticación, mostrar un estado de carga
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -14,6 +13,5 @@ export const ProtectedRoute = () => {
     );
   }
   
-  // Si no está autenticado, redirigir al login
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
 };

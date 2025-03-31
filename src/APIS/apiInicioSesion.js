@@ -1,43 +1,40 @@
 import { supabase } from "../supabase";
 
 export const registrarUsuario = async (correo, contraseña, rol) => {
-    // Inserta el usuario directamente en tu base de datos (sin usar Supabase Auth)
     const { data, error } = await supabase
-      .from("usuarios") // Nombre de la tabla donde se guardan los usuarios
+      .from("usuarios") 
       .insert([
         {
-          correo: correo, // El correo del usuario
-          contraseña: contraseña, // La contraseña del usuario
-          rol: rol, // El rol del usuario (como "CEO", "Contador", "Vendedor")
+          correo: correo, 
+          contraseña: contraseña, 
+          rol: rol, 
         },
       ]);
   
     if (error) {
-      throw new Error(error.message); // Maneja cualquier error
+      throw new Error(error.message); 
     }
   
-    return data; // Devuelve los datos insertados o el objeto del usuario
+    return data; 
   };
 
-// Iniciar sesión verificando la base de datos directamente
+
 export const iniciarSesion = async (correo, contraseña) => {
-    // Verifica si el usuario existe en la base de datos
+ 
     const { data, error } = await supabase
       .from("usuarios")
       .select("*")
       .eq("correo", correo)
-      .eq("contraseña", contraseña)  // Asegúrate de que la contraseña esté encriptada en la base de datos.
-      .single(); // Usamos `.single()` para obtener solo un usuario.
+      .eq("contraseña", contraseña)  
+      .single(); 
   
     if (error) {
       throw new Error("El usuario no existe o las credenciales son incorrectas");
     }
   
-    // Si se encuentra el usuario, devuelve la información de usuario
     return { token: 'token_aqui', userData: data };
   };
   
-  // Obtener información del usuario actual
   export const obtenerUsuario = async () => {
     const { data, error } = await supabase.auth.getUser();
   
@@ -45,9 +42,36 @@ export const iniciarSesion = async (correo, contraseña) => {
   
     return data;
   };
-  
-  // Cerrar sesión
+
   export const cerrarSesion = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) throw new Error(`Error al cerrar sesión: ${error.message}`);
+  };
+
+  export const enviarPasswordPorCorreo = async (correo) => {
+    // Buscar el usuario en la base de datos
+    const { data, error } = await supabase
+      .from("usuarios")
+      .select("contraseña")
+      .eq("correo", correo)
+      .single();
+  
+    if (error) {
+      throw new Error("El correo no está registrado en nuestro sistema.");
+    }
+  
+    // Contenido del correo (Usando la función de correo de Supabase)
+    const { error: mailError } = await supabase.functions.invoke("enviar-correo", {
+      body: {
+        to: correo,
+        subject: "Recuperación de contraseña",
+        text: `Tu contraseña es: ${data.contraseña}`,
+      },
+    });
+  
+    if (mailError) {
+      throw new Error("Error al enviar el correo.");
+    }
+  
+    return "Correo enviado con éxito.";
   };

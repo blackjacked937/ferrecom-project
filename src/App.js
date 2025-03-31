@@ -12,6 +12,7 @@ import ListaPedidos from "./Components/Lista Pedidos/ListaPedidosView";
 import ProductosView from "./Components/Productos/ProductosView";
 import ConvertirOrdenCompra from "./Components/Ordenes de compra/ConvertirOrdenCompra";
 import RegisterView from "./Components/Singup/RegisterView";
+import RecuperarPassword from "./Components/Singup/RecuperarContraseña";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route element={<PublicRoute />}>
             <Route path="/login" element={<LoginView />} />
             <Route path="/registro" element={<RegisterView />} />
+            <Route path="/recuperar-password" element={<RecuperarPassword />} />
           </Route>
           
           {/* Rutas protegidas */}
@@ -37,6 +39,7 @@ const App = () => {
               <Route path="/productos" element={<ProductosView />} />
               <Route path="/perfil" element={<PerfilUsuario />} />
               <Route path="/convertir_orden" element={<ConvertirOrdenCompra />} />
+
             </Route>
           </Route>
           

@@ -13,6 +13,5 @@ export const PublicRoute = () => {
     );
   }
   
-  // Si ya está autenticado, redirigir a la página principal
   return isAuthenticated ? <Navigate to="/home" /> : <Outlet />;
 };

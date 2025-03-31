@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { registrarUsuario } from "../../APIS/apiInicioSesion"; // Llama a la función de registrarUsuario
+import { registrarUsuario } from "../../APIS/apiInicioSesion"; 
 
 const RegisterView = () => {
   const navigate = useNavigate();
@@ -33,10 +33,8 @@ const RegisterView = () => {
         throw new Error("Ingrese un correo electrónico válido");
       }
 
-      // Llamada a la función para registrar al usuario en la base de datos
       await registrarUsuario(credentials.email, credentials.password, credentials.rol);
 
-      // Redirigir a la página de inicio después de registrarse
       navigate("/home");
     } catch (error) {
       setError(error.message || "Error al registrar usuario.");

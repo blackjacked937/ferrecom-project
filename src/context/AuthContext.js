@@ -1,20 +1,16 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Crear el contexto de autenticación
 export const AuthContext = createContext();
 
-// Hook personalizado para usar el contexto de autenticación
 export const useAuth = () => useContext(AuthContext);
 
-// Proveedor del contexto de autenticación
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Verificar si hay un token al cargar la aplicación
   useEffect(() => {
     const checkAuth = () => {
       const token = localStorage.getItem('authToken');
@@ -30,7 +26,6 @@ export const AuthProvider = ({ children }) => {
     checkAuth();
   }, []);
 
-  // Función para iniciar sesión
   const login = (token, userData) => {
     localStorage.setItem('authToken', token);
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -38,7 +33,6 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
   };
 
-  // Función para cerrar sesión
   const logout = () => {
     localStorage.removeItem('authToken');
     localStorage.removeItem('userData');

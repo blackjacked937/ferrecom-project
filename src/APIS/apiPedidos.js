@@ -73,10 +73,10 @@ export const obtenerDetallesPedido = async (pedidoId) => {
       .from("pedidos")
       .select("*")
       .eq("id", pedidoId)
-      .single(); // `.single()` obtiene solo un registro
+      .single(); // `.single()` 
 
     if (error) throw error;
-    return data; // Retorna los detalles del pedido
+    return data; 
   } catch (error) {
     console.error("Error al obtener detalles del pedido:", error);
     throw error;

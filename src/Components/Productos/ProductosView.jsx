@@ -29,7 +29,6 @@ const ProductosView = () => {
       <div className="w-full max-w-7xl mx-auto bg-white shadow-2xl rounded-lg p-8 mt-6 flex-grow">
         <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center">Lista de Productos</h2>
 
-        {/* Filtros y búsqueda */}
         <div className="mb-6 flex justify-between items-center space-x-4">
           <div className="flex space-x-2">
             {["Todos", "FERRE AC", "FERRE CM", "FERRE EO"].map((categoria) => (
@@ -55,7 +54,7 @@ const ProductosView = () => {
           />
         </div>
 
-        {/* Tabla de productos */}
+      
         <div className="overflow-x-auto rounded-lg border border-gray-300 shadow-lg">
           <table className="w-full text-sm text-gray-700">
             <thead className="bg-gradient-to-r from-blue-800 to-purple-800 text-white">
@@ -81,7 +80,6 @@ const ProductosView = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="bg-gradient-to-r from-blue-900 to-purple-900 text-white text-center py-4 mt-6">
         <p className="text-sm">© 2025 FullStock. Todos los derechos reservados.</p>
       </footer>
