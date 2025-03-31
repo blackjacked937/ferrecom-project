@@ -1,6 +1,6 @@
 class HomeModel {
     constructor() {
-      this.mensaje = "Bienvenido a FullStock";
+      this.mensaje = "Bienvenido a Ferrecom";
       this.descripcion = "Gestiona tus órdenes de compra e inventario de manera eficiente.";
     }
   

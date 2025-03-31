@@ -6,6 +6,7 @@ import ListaPedidos from "./Components/Lista Pedidos/ListaPedidosView";
 import Navbar from "./Components/Navbar"; 
 import Home from "./Components/Home/HomeView";
 import ProductosView from "./Components/Productos/ProductosView";
+import ConvertirOrdenCompra from "./Components/Ordenes de compra/ConvertirOrdenCompra";
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
         <Route path="/lista_pedidos" element={<ListaPedidos />} />
         <Route path="/productos" element={<ProductosView />} />
         <Route path="/perfil" element={<PerfilUsuario />} />
-      </Routes>
+        <Route path="/convertir_orden" element={<ConvertirOrdenCompra />} />
+      </Routes> 
     </Router>
   );
 };

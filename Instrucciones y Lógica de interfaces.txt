@@ -1,0 +1,169 @@
+Instrucciones y Lógica de las Interfaces
+1. Lista de Pedidos (ListaPedidos)
+Descripción: Muestra una lista de pedidos con opciones de filtrado y búsqueda.
+
+Lógica:
+
+Filtrado:
+
+Los pedidos se filtran por estado (statusFilter), almacén (almacenFilter) y sucursal (sucursalFilter).
+
+El filtrado se realiza en tiempo real cada vez que el usuario selecciona una opción.
+
+Búsqueda:
+
+El usuario puede buscar pedidos por cliente o ID del documento.
+
+La búsqueda es insensible a mayúsculas y minúsculas.
+
+Datos:
+
+Los datos se almacenan en un arreglo data dentro del componente.
+
+Los datos filtrados se muestran en una tabla.
+
+Instrucciones:
+
+Usa los botones de filtrado para seleccionar un estado, almacén o sucursal.
+
+Usa el campo de búsqueda para buscar pedidos específicos.
+
+La tabla se actualiza automáticamente según los filtros y la búsqueda.
+
+2. Perfil de Usuario (PerfilUsuario)
+Descripción: Permite al usuario ver y actualizar su perfil, incluyendo una imagen de perfil.
+
+Lógica:
+
+Imagen de Perfil:
+
+El usuario puede subir una imagen de perfil.
+
+La imagen se muestra en tiempo real después de ser seleccionada.
+
+Datos del Usuario:
+
+Los campos de correo y rol están deshabilitados para edición.
+
+El usuario puede marcar una casilla para cambiar la contraseña.
+
+Botones:
+
+Regresar: Vuelve a la pantalla anterior.
+
+Guardar: Guarda los cambios realizados (lógica no implementada).
+
+Instrucciones:
+
+Haz clic en "Subir Foto" para cambiar la imagen de perfil.
+
+Marca la casilla "Cambiar Contraseña" si deseas actualizar tu contraseña.
+
+Usa los botones "Regresar" y "Guardar" para navegar o guardar cambios.
+
+3. Home (Home)
+Descripción: Pantalla de inicio con un mensaje de bienvenida y enlaces a otras secciones.
+
+Lógica:
+
+Enlaces:
+
+Ver Órdenes de Compra: Redirige a la pantalla de órdenes de compra.
+
+Ir a Perfil: Redirige a la pantalla de perfil de usuario.
+
+Diseño:
+
+Usa un diseño centrado con un mensaje de bienvenida y botones grandes.
+
+Instrucciones:
+
+Haz clic en "Ver Órdenes de Compra" para acceder a la lista de órdenes.
+
+Haz clic en "Ir a Perfil" para acceder a tu perfil de usuario.
+
+4. Órdenes de Compra (OrdenesDeCompra)
+Descripción: Muestra una lista de órdenes de compra con detalles como cliente, comprador y estatus.
+
+Lógica:
+
+Datos:
+
+Los datos se almacenan en un arreglo data dentro del componente.
+
+Cada orden incluye detalles como ID, fecha, cliente, comprador y estatus.
+
+Estatus:
+
+El estatus se muestra con un color de fondo diferente según su valor (Facturado, Aplicado, etc.).
+
+Tabla:
+
+Los datos se muestran en una tabla con columnas para cada campo.
+
+Instrucciones:
+
+Revisa la tabla para ver las órdenes de compra.
+
+Observa el estatus de cada orden en la columna correspondiente.
+
+5. Productos (Productos)
+Descripción: Muestra una lista de productos con opciones de filtrado y búsqueda.
+
+Lógica:
+
+Filtrado:
+
+Los productos se filtran por categoría (categoriaFilter).
+
+El filtrado se realiza en tiempo real cada vez que el usuario selecciona una categoría.
+
+Búsqueda:
+
+El usuario puede buscar productos por descripción o código.
+
+La búsqueda es insensible a mayúsculas y minúsculas.
+
+Datos:
+
+Los datos se almacenan en un arreglo data dentro del componente.
+
+Los datos filtrados se muestran en una tabla.
+
+Instrucciones:
+
+Usa los botones de filtrado para seleccionar una categoría.
+
+Usa el campo de búsqueda para buscar productos específicos.
+
+La tabla se actualiza automáticamente según los filtros y la búsqueda.
+
+Estructura General de los Componentes
+Model (Modelo):
+
+Contiene los datos y la lógica de filtrado.
+
+Ejemplo: ListaPedidosModel, ProductosModel.
+
+Controller (Controlador):
+
+Maneja la interacción entre el Model y la View.
+
+Ejemplo: ListaPedidosController, ProductosController.
+
+View (Vista):
+
+Se encarga de la presentación y la interfaz de usuario.
+
+Ejemplo: ListaPedidosView, ProductosView.
+
+Notas Adicionales
+React Router:
+
+Si usas BrowserRouter, asegúrate de configurar un archivo 404.html para manejar las rutas en GitHub Pages.
+
+Si usas HashRouter, las rutas incluirán un #, pero no necesitarás configuraciones adicionales.
+
+Actualizaciones:
+
+Cada vez que hagas cambios en tu proyecto, sube los cambios a GitHub y vuelve a desplegar con npm run deploy.
