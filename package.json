@@ -2,7 +2,7 @@
   "name": "ferrecom",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://blackjacked937.github.io/ferrecom-project",
+  "homepage": "https://your-vercel-project-url/ferrecom-project",
   "dependencies": {
     "@supabase/supabase-js": "^2.49.3",
     "@testing-library/dom": "^10.4.0",
