@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import OrdenesDeCompra from "./Components/Ordenes de compra/OrdenesDeCompraView";
 import PerfilUsuario from "./Components/Perfil/PerfilUsuarioView";
 import ListaPedidos from "./Components/Lista Pedidos/ListaPedidosView";
